@@ -8,7 +8,7 @@ const MovieListCard = ({ movie }) => {
       {movie.poster_path ? (
         <img src={`${IMAGE_PATH}${movie.poster_path}`} alt="" />
       ) : null}
-      <h5>{movie.title}</h5>
+      <h4>{movie.title}</h4>
     </div>
   );
 };
