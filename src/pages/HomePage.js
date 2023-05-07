@@ -34,6 +34,7 @@ const HomePage = () => {
         key={movie.id}
         movie={movie}
         addToWatchLater={addToWatchLater}
+        addToFavourite={addToFavourite}
       />
     ));
 
@@ -42,11 +43,24 @@ const HomePage = () => {
     getMovie(search);
   };
 
+  // const addToWatchLater = (movie) => {
+  //   const watchLaterList =
+  //     JSON.parse(localStorage.getItem("watchLaterList")) || [];
+  //   const updatedList = [...watchLaterList, movie];
+  //   localStorage.setItem("watchLaterList", JSON.stringify(updatedList));
+  // };
+
+  const addItemToList = (listName, movie) => {
+    const list = JSON.parse(localStorage.getItem(listName)) || [];
+    const updatedList = [...list, movie];
+    localStorage.setItem(listName, JSON.stringify(updatedList));
+  };
+
   const addToWatchLater = (movie) => {
-    const watchLaterList =
-      JSON.parse(localStorage.getItem("watchLaterList")) || [];
-    const updatedList = [...watchLaterList, movie];
-    localStorage.setItem("watchLaterList", JSON.stringify(updatedList));
+    addItemToList("watchLaterList", movie);
+  };
+  const addToFavourite = (movie) => {
+    addItemToList("favouriteList", movie);
   };
 
   return (
