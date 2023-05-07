@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MovieListCard from "../components/MovieListCard";
-
+import "../App.css";
 const HomePage = () => {
   const apiUrl = "https://api.themoviedb.org/3";
   const [movies, setMovies] = useState([]);
@@ -25,9 +25,9 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1> hello </h1>
+      <h1> WATCH ME </h1>
 
-      <div> {renderMovies()}</div>
+      <div className="container"> {renderMovies()}</div>
     </div>
   );
 };
