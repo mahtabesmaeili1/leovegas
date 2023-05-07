@@ -32,8 +32,8 @@ const MovieListCard = ({ movie, addToWatchLater }) => {
         <img src={`${IMAGE_PATH}${movie.poster_path}`} alt="" />
       ) : null}
       <h4>{movie.title}</h4>
-      <button onClick={toggleWatchLater}>
-        {isAdded ? "Remove from Watch Later" : "Add to Watch Later"}
+      <button className="watchLaterBtn" onClick={toggleWatchLater}>
+        {isAdded ? "Remove X" : "Watch Later +"}
       </button>
     </div>
   );
