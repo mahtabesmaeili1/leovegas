@@ -204,23 +204,3 @@ body {
 .nav-link:hover {
   transform: scale(1.2);
 }
-/* .nav-link:hover {
-  background: #03e9f4;
-  color: #fff;
-  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
-    0 0 100px #03e9f4;
-} */
-/* .nav-link::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 2px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: #03e9f4;
-  transition: width 0.3s ease-in-out;
-}
-.nav-link:hover::after {
-  width: 100%;
-} */

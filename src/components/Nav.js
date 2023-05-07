@@ -5,7 +5,7 @@ const Nav = () => {
       <a className="logo" href="/">
         WATCHME
       </a>
-      <div class="navbar-links">
+      <div className="navbar-links">
         <a className="nav-link" href="/watchlater">
           watch later
         </a>

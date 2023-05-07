@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-
 import axios from "axios";
 import MovieListCard from "../components/MovieListCard";
 import "../App.css";
-import Nav from "../components/Nav";
 
 const HomePage = () => {
   const apiUrl = "https://api.themoviedb.org/3";
@@ -29,18 +27,31 @@ const HomePage = () => {
   useEffect(() => {
     getMovie();
   }, []);
+
   const renderMovies = () =>
-    movies.map((movie) => <MovieListCard key={movie.id} movie={movie} />);
+    movies.map((movie) => (
+      <MovieListCard
+        key={movie.id}
+        movie={movie}
+        addToWatchLater={addToWatchLater}
+      />
+    ));
 
   const searchMovies = (e) => {
     e.preventDefault();
     getMovie(search);
   };
+
+  const addToWatchLater = (movie) => {
+    const watchLaterList =
+      JSON.parse(localStorage.getItem("watchLaterList")) || [];
+    const updatedList = [...watchLaterList, movie];
+    localStorage.setItem("watchLaterList", JSON.stringify(updatedList));
+  };
+
   return (
     <div>
-      <header className="header">
-        <Nav />
-      </header>
+      <header className="header"></header>
       <form className="form" onSubmit={searchMovies}>
         <input
           type="text"
