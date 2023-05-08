@@ -43,13 +43,6 @@ const HomePage = () => {
     getMovie(search);
   };
 
-  // const addToWatchLater = (movie) => {
-  //   const watchLaterList =
-  //     JSON.parse(localStorage.getItem("watchLaterList")) || [];
-  //   const updatedList = [...watchLaterList, movie];
-  //   localStorage.setItem("watchLaterList", JSON.stringify(updatedList));
-  // };
-
   const addItemToList = (listName, movie) => {
     const list = JSON.parse(localStorage.getItem(listName)) || [];
     const updatedList = [...list, movie];
@@ -73,11 +66,7 @@ const HomePage = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
         <button className="searchButton" type={"submit"}>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          search
+          🔍
         </button>
       </form>
       <div className="container"> {renderMovies()}</div>

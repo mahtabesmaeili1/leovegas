@@ -3,7 +3,7 @@ const Nav = () => {
   return (
     <div className="navbar">
       <a className="logo" href="/">
-        WATCHME
+        <span style={{ color: "yellow", fontSize: "33px" }}>W</span>ATCHME
       </a>
       <div className="navbar-links">
         <a className="nav-link" href="/watchlater">

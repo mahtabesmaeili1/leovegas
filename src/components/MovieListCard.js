@@ -55,10 +55,10 @@ const MovieListCard = ({ movie, addToWatchLater, addToFavourite }) => {
       ) : null}
       <h4>{movie.title}</h4>
       <button className="watchLaterBtn" onClick={toggleWatchLater}>
-        {isAddedToWatchLater ? "X" : "Watch Later"}
+        {isAddedToWatchLater ? "Remove" : "Watch Later"}
       </button>
       <button className="favouriteBtn" onClick={toggleFavourite}>
-        {isAddedToFavourite ? "X" : "favourite"}
+        {isAddedToFavourite ? "⭐" : "☆"}
       </button>
     </div>
   );

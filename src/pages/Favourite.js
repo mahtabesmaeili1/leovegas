@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import "../App.css";
 function Favourites() {
   const [favourite, setFavourite] = useState([]);
 
@@ -31,10 +31,10 @@ function Favourites() {
           />
         )}
         <div>
-          <h2>{movie.title}</h2>
+          <h4>{movie.title}</h4>
           <p>{movie.overview}</p>
-          <button onClick={() => removeFromFavourite(movie)}>
-            Remove from Favourite
+          <button className="fwBTN" onClick={() => removeFromFavourite(movie)}>
+            X
           </button>
         </div>
       </li>
@@ -42,14 +42,18 @@ function Favourites() {
 
   return (
     <div>
-      <h1>Favourite List</h1>
-      <ul>
-        {favourite.length > 0 ? (
-          renderFavouriteMovies()
-        ) : (
-          <p>No movies added to favourite list.</p>
-        )}
-      </ul>
+      <h2 className="watchLfavPageTitle">Favourite List</h2>
+      <div className="wfpCard">
+        <ul>
+          {favourite.length > 0 ? (
+            renderFavouriteMovies()
+          ) : (
+            <h5 className="nothingAddedYet">
+              No movies added to favourite list.
+            </h5>
+          )}
+        </ul>
+      </div>
     </div>
   );
 }

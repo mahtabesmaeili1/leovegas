@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import "../App.css";
 function WatchLater() {
   const [watchLaterList, setWatchLaterList] = useState([]);
 
@@ -18,35 +18,42 @@ function WatchLater() {
 
   return (
     <div>
-      <h1>Watch Later List</h1>
-      <ul>
-        {watchLaterList.length > 0 ? (
-          watchLaterList.map((movie) => (
-            <li key={movie.id}>
-              {movie.poster_path ? (
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title}
-                />
-              ) : (
-                <img
-                  src="https://via.placeholder.com/150x225.png?text=Poster+Not+Available"
-                  alt={movie.title}
-                />
-              )}
-              <div>
-                <h2>{movie.title}</h2>
-                <p>{movie.overview}</p>
-                <button onClick={() => removeFromWatchLater(movie)}>
-                  Remove
-                </button>
-              </div>
-            </li>
-          ))
-        ) : (
-          <p>No movies added to watch later list.</p>
-        )}
-      </ul>
+      <h2 className="watchLfavPageTitle">Watch Later List</h2>
+      <div className="wfpCard">
+        <ul>
+          {watchLaterList.length > 0 ? (
+            watchLaterList.map((movie) => (
+              <li key={movie.id}>
+                {movie.poster_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                ) : (
+                  <img
+                    src="https://via.placeholder.com/150x225.png?text=Poster+Not+Available"
+                    alt={movie.title}
+                  />
+                )}
+                <div>
+                  <h4>{movie.title}</h4>
+                  <p>{movie.overview}</p>
+                  <button
+                    className="fwBTN"
+                    onClick={() => removeFromWatchLater(movie)}
+                  >
+                    X
+                  </button>
+                </div>
+              </li>
+            ))
+          ) : (
+            <h5 className="nothingAddedYet">
+              No movies added to Watch Later list.
+            </h5>
+          )}
+        </ul>
+      </div>
     </div>
   );
 }
