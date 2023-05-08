@@ -5,10 +5,10 @@ import "../App.css";
 
 const HomePage = () => {
   const apiUrl = "https://api.themoviedb.org/3";
-
+  const IMAGE_PATH = "https://image.tmdb.org/t/p/w1280";
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
-
+  const [selectHero, setSelectHero] = useState({});
   const getMovie = async (search) => {
     const keyword = search ? "search" : "discover";
 
@@ -20,7 +20,7 @@ const HomePage = () => {
         query: search,
       },
     });
-
+    setSelectHero(results[0]);
     setMovies(results);
   };
 
@@ -35,6 +35,7 @@ const HomePage = () => {
         movie={movie}
         addToWatchLater={addToWatchLater}
         addToFavourite={addToFavourite}
+        selectHero={setSelectHero}
       />
     ));
 
@@ -58,7 +59,22 @@ const HomePage = () => {
 
   return (
     <div>
-      <header className="header"></header>
+      <div
+        className="hero"
+        style={{
+          backgroundImage: `url('${IMAGE_PATH}${selectHero.backdrop_path}')`,
+        }}
+      >
+        <div className="heroContent">
+          <button className="trailerButton">Play Trailer</button>
+          <h1 className="heroTitle"> {selectHero.title}</h1>
+          <div className="heroOverview">
+            {" "}
+            {selectHero.overview ? <p>{selectHero.overview}</p> : null}
+          </div>
+        </div>
+      </div>
+
       <form className="form" onSubmit={searchMovies}>
         <input
           type="text"
@@ -69,6 +85,7 @@ const HomePage = () => {
           🔍
         </button>
       </form>
+
       <div className="container"> {renderMovies()}</div>
     </div>
   );

@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import "../App.css";
 
-const MovieListCard = ({ movie, addToWatchLater, addToFavourite }) => {
+const MovieListCard = ({
+  movie,
+  addToWatchLater,
+  addToFavourite,
+  selectHero,
+}) => {
   const IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
   const [isAddedToWatchLater, setIsAddedToWatchLater] = useState(
     JSON.parse(localStorage.getItem("watchLaterList"))?.some(
@@ -49,10 +54,17 @@ const MovieListCard = ({ movie, addToWatchLater, addToFavourite }) => {
   };
 
   return (
-    <div className="movieCard">
+    <div
+      className="movieCard"
+      onClick={() => {
+        selectHero(movie);
+      }}
+    >
       {movie.poster_path ? (
         <img src={`${IMAGE_PATH}${movie.poster_path}`} alt="" />
-      ) : null}
+      ) : (
+        <div className="moviePlaceHolder">No Image found</div>
+      )}
       <h4>{movie.title}</h4>
       <button className="watchLaterBtn" onClick={toggleWatchLater}>
         {isAddedToWatchLater ? "Remove" : "Watch Later"}
