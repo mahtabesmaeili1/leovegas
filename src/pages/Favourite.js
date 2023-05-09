@@ -42,7 +42,7 @@ function Favourites() {
     ));
 
   return (
-    <div>
+    <div className="forHeight">
       <Nav />
       <h2 className="watchLfavPageTitle">Favourite List</h2>
       <div className="wfpCard">

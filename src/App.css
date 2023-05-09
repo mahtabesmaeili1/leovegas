@@ -7,6 +7,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -89,42 +90,37 @@ body {
 .searchButton {
   border-style: none;
   background-color: transparent;
-  background: #ffffff;
-  border-radius: 50px;
-  box-shadow: 0 0 5px #ffffff, 0 0 25px #ffffff, 0 0 50px #ffffff,
-    0 0 100px #ffffff;
-  font-size: 13px;
-  margin-left: 2px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  font-size: 15px;
+  margin-left: -36px;
 }
 
-.searchButton:hover {
+/* .searchButton:hover {
   transform: scale(1.2);
   background: #f7fba7;
-  color: #fff;
-  border-radius: 50px;
   box-shadow: 0 0 5px #f7fba7, 0 0 25px #f7fba7, 0 0 50px #f7fba7,
     0 0 100px #f7fba7;
-}
+} */
 .form {
   margin: 1rem;
 }
 .form input {
   border: none;
-  height: 7px;
+  height: 8px;
   border-radius: 5px;
-
-  font-size: 17px;
+  font-size: 15px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  width: 190px;
+  width: 200px;
   box-shadow: 0 0 15px #ffffff;
   padding: 10px;
 }
 .form input:focus {
   outline: none;
-  box-shadow: 0 0 15px #ecf84c;
+  box-shadow: 0 0 15px #ebf199;
 }
-
-/* navbar*/
+/* navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -244,10 +240,14 @@ body {
   justify-content: center;
   text-shadow: 3px 3px 3px #000;
 }
+.forHeight {
+  min-height: 100vh;
+}
 .nothingAddedYet {
   animation: flicker 1.5s infinite alternate;
   color: #ffffff;
   font-weight: 600;
+
   font-size: 30px;
   letter-spacing: 2px;
   text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff;
@@ -347,17 +347,13 @@ body {
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #000000cd;
-
-  text-align: center;
+  display: flex;
+  justify-content: center;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
-@media screen and (max-width: 708px) {
+@media screen and (max-width: 748px) {
   .navbar {
     display: flex;
     flex-direction: column;
@@ -385,15 +381,7 @@ body {
     flex-direction: column;
     align-items: center;
   }
-  .searchButton {
-    margin-left: 2px;
-  }
 
-  .form input {
-    font-size: 14px;
-    margin-left: 17px;
-    width: 150px;
-  }
   .nothingAddedYet {
     font-weight: 400;
     font-size: 20px;
