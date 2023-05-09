@@ -83,12 +83,14 @@ const HomePage = () => {
     const trailer = selectHero.videos.results.find(
       (vid) => vid.name === "Official Trailer"
     );
-    const key = trailer ? trailer.key : selectHero.videos.results[0].key;
+    const key = trailer ? trailer.key : null;
+    if (!key) {
+      return <p>Sorry, this movie doesn't have a trailer.</p>;
+    }
     return (
       <YouTube
         className="youtube-container"
         videoId={key}
-        containerClassName={"youtube-container"}
         opts={{
           width: "100%",
           height: "100%",
@@ -134,21 +136,15 @@ const HomePage = () => {
         }}
       >
         <div className="heroContent">
-          {playTrailer ? (
-            <button
-              className="trailerButton btnClose"
-              onClick={() => setPlayTrailer(false)}
-            >
-              Close
-            </button>
-          ) : null}
           {selectHero.videos && playTrailer ? renderTrailer() : null}
-          <button
-            className="trailerButton"
-            onClick={() => setPlayTrailer(true)}
-          >
-            Play Trailer
-          </button>
+          {selectHero.videos && !playTrailer && (
+            <button
+              className="trailerButton"
+              onClick={() => setPlayTrailer(true)}
+            >
+              Play Trailer
+            </button>
+          )}
           <h1 className="heroTitle"> {selectHero.title}</h1>
           <div className="heroOverview">
             {" "}

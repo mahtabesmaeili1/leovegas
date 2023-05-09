@@ -68,7 +68,10 @@ const MovieListCard = ({
         ) : (
           <div className="moviePlaceHolder">No Image found</div>
         )}
-        <h4>{movie.title}</h4>{" "}
+        <h4>{movie.title}</h4>
+        {movie.vote_average ? (
+          <span className={"movie-voting"}>{movie.vote_average}</span>
+        ) : null}
       </div>
       <button className="watchLaterBtn" onClick={toggleWatchLater}>
         {isAddedToWatchLater ? "Remove" : "Watch Later"}
