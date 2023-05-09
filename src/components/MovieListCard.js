@@ -5,7 +5,7 @@ const MovieListCard = ({
   movie,
   addToWatchLater,
   addToFavourite,
-  selectHero,
+  selectedHero,
 }) => {
   const IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
   const [isAddedToWatchLater, setIsAddedToWatchLater] = useState(
@@ -57,7 +57,7 @@ const MovieListCard = ({
     <div
       className="movieCard"
       onClick={() => {
-        selectHero(movie);
+        selectedHero(movie);
       }}
     >
       {movie.poster_path ? (
