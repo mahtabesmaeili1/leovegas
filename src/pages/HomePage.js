@@ -107,7 +107,7 @@ const HomePage = () => {
     <div>
       <div className="navbar">
         <a className="logo" href="/">
-          <span className="span">W</span>ATCHME
+          <span className="span">W</span>ATCHFLIX
         </a>
 
         <div className="navbar-links">
