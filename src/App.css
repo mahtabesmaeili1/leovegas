@@ -391,4 +391,33 @@ body {
   .watchLfavPageTitle {
     font-size: 20px;
   }
+  .wfpCard ul li {
+    width: 100%;
+    border-radius: 5%;
+    margin: 1rem 10px;
+    display: flex;
+    flex-direction: row;
+    max-height: 300px;
+    max-width: 400px;
+  }
+
+  .wfpCard img {
+    max-width: 50%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+  .wfpCard h4 {
+    font-size: 16px;
+    height: auto;
+    width: 50%;
+  }
+
+  .wfpCard p {
+    font-size: 13px;
+    text-align: left;
+    overflow-y: scroll;
+    width: 100%;
+    margin-bottom: 5px;
+  }
 }
