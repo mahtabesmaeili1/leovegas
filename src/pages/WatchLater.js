@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
+import Nav from "../components/Nav";
 function WatchLater() {
   const [watchLaterList, setWatchLaterList] = useState([]);
 
@@ -18,6 +19,7 @@ function WatchLater() {
 
   return (
     <div>
+      <Nav />
       <h2 className="watchLfavPageTitle">Watch Later List</h2>
       <div className="wfpCard">
         <ul>

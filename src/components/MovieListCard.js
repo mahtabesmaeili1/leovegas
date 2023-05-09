@@ -52,7 +52,9 @@ const MovieListCard = ({
     ).filter((item) => item.id !== movie.id);
     localStorage.setItem("favouriteList", JSON.stringify(updatedList));
   };
-
+  const handleImageClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <div
       className="movieCard"
@@ -60,12 +62,14 @@ const MovieListCard = ({
         selectedHero(movie);
       }}
     >
-      {movie.poster_path ? (
-        <img src={`${IMAGE_PATH}${movie.poster_path}`} alt="" />
-      ) : (
-        <div className="moviePlaceHolder">No Image found</div>
-      )}
-      <h4>{movie.title}</h4>
+      <div onClick={() => handleImageClick()}>
+        {movie.poster_path ? (
+          <img src={`${IMAGE_PATH}${movie.poster_path}`} alt="" />
+        ) : (
+          <div className="moviePlaceHolder">No Image found</div>
+        )}
+        <h4>{movie.title}</h4>{" "}
+      </div>
       <button className="watchLaterBtn" onClick={toggleWatchLater}>
         {isAddedToWatchLater ? "Remove" : "Watch Later"}
       </button>

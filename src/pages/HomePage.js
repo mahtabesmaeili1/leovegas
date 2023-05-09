@@ -61,7 +61,7 @@ const HomePage = () => {
         selectedHero={selectedHero}
       />
     ));
-
+  //SEARCH
   const searchMovies = (e) => {
     e.preventDefault();
     getMovie(search);
@@ -103,6 +103,30 @@ const HomePage = () => {
 
   return (
     <div>
+      <div className="navbar">
+        <a className="logo" href="/">
+          <span style={{ color: "yellow", fontSize: "33px" }}>W</span>ATCHME
+        </a>
+
+        <div className="navbar-links">
+          <form className="form" onSubmit={searchMovies}>
+            <input
+              type="text"
+              placeholder="search your movie here..."
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <button className="searchButton" type={"submit"}>
+              🔍
+            </button>
+          </form>
+          <a className="nav-link" href="/watchlater">
+            watch later
+          </a>
+          <a className="nav-link" href="/favourites">
+            favourites
+          </a>
+        </div>
+      </div>
       <div
         className="hero"
         style={{
@@ -128,21 +152,12 @@ const HomePage = () => {
           <h1 className="heroTitle"> {selectHero.title}</h1>
           <div className="heroOverview">
             {" "}
-            {selectHero.overview ? <p>{selectHero.overview}</p> : null}
+            {selectHero.overview ? (
+              <p style={{ marginLeft: "40px" }}>{selectHero.overview}</p>
+            ) : null}
           </div>
         </div>
       </div>
-
-      <form className="form" onSubmit={searchMovies}>
-        <input
-          type="text"
-          placeholder="search your movie here..."
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button className="searchButton" type={"submit"}>
-          🔍
-        </button>
-      </form>
 
       <div className="container"> {renderMovies()}</div>
     </div>
