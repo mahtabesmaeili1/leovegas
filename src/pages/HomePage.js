@@ -107,26 +107,30 @@ const HomePage = () => {
     <div>
       <div className="navbar">
         <a className="logo" href="/">
-          <span style={{ color: "yellow", fontSize: "33px" }}>W</span>ATCHME
+          <span className="span">W</span>ATCHME
         </a>
 
         <div className="navbar-links">
-          <form className="form" onSubmit={searchMovies}>
-            <input
-              type="text"
-              placeholder="search your movie here..."
-              onChange={(e) => setSearch(e.target.value)}
-            />
-            <button className="searchButton" type={"submit"}>
-              🔍
-            </button>
-          </form>
-          <a className="nav-link" href="/watchlater">
-            watch later
-          </a>
-          <a className="nav-link" href="/favourites">
-            favourites
-          </a>
+          <div>
+            <form className="form" onSubmit={searchMovies}>
+              <input
+                type="text"
+                placeholder="search your movie here..."
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <button className="searchButton" type={"submit"}>
+                🔍
+              </button>
+            </form>
+          </div>
+          <div>
+            <a className="nav-link" href="/watchlater">
+              watch later
+            </a>
+            <a className="nav-link" href="/favourites">
+              favourites
+            </a>
+          </div>
         </div>
       </div>
       <div

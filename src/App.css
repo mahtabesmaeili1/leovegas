@@ -105,7 +105,9 @@ body {
   box-shadow: 0 0 5px #f7fba7, 0 0 25px #f7fba7, 0 0 50px #f7fba7,
     0 0 100px #f7fba7;
 }
-
+.form {
+  margin: 1rem;
+}
 .form input {
   border: none;
   height: 7px;
@@ -338,4 +340,47 @@ body {
 .sorry {
   font-size: xx-large;
   margin-left: 30px;
+}
+.span {
+  color: yellow;
+  font-size: 33px;
+}
+
+@media screen and (max-width: 708px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+  }
+  .logo {
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+  .span {
+    font-size: 28px;
+  }
+  .heroTitle {
+    font-size: 40px;
+    margin-left: 30px;
+    text-shadow: 3px 3px 3px #000;
+  }
+}
+@media screen and (max-width: 590px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+  }
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .searchButton {
+    margin-left: 2px;
+  }
+
+  .form input {
+    font-size: 13px;
+    margin-left: 17px;
+    width: 150px;
+  }
 }
