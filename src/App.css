@@ -383,4 +383,12 @@ body {
     margin-left: 17px;
     width: 150px;
   }
+  .nothingAddedYet {
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  .watchLfavPageTitle {
+    font-size: 20px;
+  }
 }
