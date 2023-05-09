@@ -85,7 +85,7 @@ const HomePage = () => {
     );
     const key = trailer ? trailer.key : null;
     if (!key) {
-      return <p>Sorry, this movie doesn't have a trailer.</p>;
+      return <p className="sorry">Sorry, this movie doesn't have a trailer.</p>;
     }
     return (
       <YouTube
