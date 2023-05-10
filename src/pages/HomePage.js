@@ -4,7 +4,6 @@ import axios from "axios";
 import MovieListCard from "../components/MovieListCard";
 import "../App.css";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 const HomePage = () => {
   const apiUrl = "https://api.themoviedb.org/3";
   const IMAGE_PATH = "https://image.tmdb.org/t/p/w1280";
@@ -156,7 +155,7 @@ const HomePage = () => {
           <div className="heroOverview">
             {" "}
             {selectHero.overview ? (
-              <p style={{ marginLeft: "40px" }}>{selectHero.overview}</p>
+              <p style={{ marginLeft: "30px" }}>{selectHero.overview}</p>
             ) : null}
           </div>
         </div>
