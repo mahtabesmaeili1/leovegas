@@ -3,7 +3,8 @@ import YouTube from "react-youtube";
 import axios from "axios";
 import MovieListCard from "../components/MovieListCard";
 import "../App.css";
-
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 const HomePage = () => {
   const apiUrl = "https://api.themoviedb.org/3";
   const IMAGE_PATH = "https://image.tmdb.org/t/p/w1280";
@@ -12,7 +13,7 @@ const HomePage = () => {
   const [search, setSearch] = useState(""); //to search
   const [selectHero, setSelectHero] = useState({}); //hero
   const [playTrailer, setPlayTrailer] = useState(false);
-
+  const [open, setOpen] = useState(false);
   const getMovie = async (search) => {
     const keyword = search ? "search" : "discover";
 
@@ -105,12 +106,16 @@ const HomePage = () => {
 
   return (
     <div>
-      <div className="navbar">
-        <a className="logo" href="/">
+      <Nav>
+        <Logo className="logo" href="/">
           <span className="span">W</span>ATCHFLIX
-        </a>
-
-        <div className="navbar-links">
+        </Logo>
+        <Hamburger onClick={() => setOpen(!open)}>
+          <span />
+          <span />
+          <span />
+        </Hamburger>
+        <Menu open={open}>
           <div>
             <form className="form" onSubmit={searchMovies}>
               <input
@@ -123,16 +128,14 @@ const HomePage = () => {
               </button>
             </form>
           </div>
-          <div>
-            <a className="nav-link" href="/watchlater">
-              watch later
-            </a>
-            <a className="nav-link" href="/favourites">
-              favourites
-            </a>
-          </div>
-        </div>
-      </div>
+          <a className="nav-link" href="/watchlater">
+            watch later
+          </a>{" "}
+          <a className="nav-link" href="/favourites">
+            favourites
+          </a>
+        </Menu>
+      </Nav>
       <div
         className="hero"
         style={{
@@ -165,3 +168,67 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+const Nav = styled.div`
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #000000be;
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  right: 0;
+`;
+
+const Logo = styled.a`
+  padding: 1rem 0;
+  color: #ececec;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.5rem;
+
+  span {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  @media (max-width: 780px) {
+    font-size: 1.3rem;
+    span {
+      font-size: 1.7rem;
+    }
+  }
+`;
+
+const Hamburger = styled.div`
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  span {
+    height: 2px;
+    width: 25px;
+    background-color: #ececec;
+    margin-bottom: 4px;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 780px) {
+    display: flex;
+  }
+`;
+
+const Menu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  @media (max-width: 780px) {
+    overflow: hidden;
+    flex-direction: column;
+    width: 100%;
+    max-height: ${({ open }) => (open ? "300px" : "0")};
+    transition: max-height 0.3s ease-in;
+  }
+`;

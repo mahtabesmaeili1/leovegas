@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
-import Nav from "../components/Nav";
+import Navbar from "../components/Nav";
 function Favourites() {
   const [favourite, setFavourite] = useState([]);
 
@@ -43,7 +43,7 @@ function Favourites() {
 
   return (
     <div className="forHeight">
-      <Nav />
+      <Navbar />
       <h2 className="watchLfavPageTitle">Favourite List</h2>
       <div className="wfpCard">
         <ul>
