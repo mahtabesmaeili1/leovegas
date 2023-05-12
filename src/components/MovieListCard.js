@@ -77,7 +77,7 @@ const MovieListCard = ({
         {isAddedToWatchLater ? "Remove" : "Watch Later"}
       </button>
       <button className="favouriteBtn" onClick={toggleFavourite}>
-        {isAddedToFavourite ? "🌟" : "☆"}
+        {isAddedToFavourite ? "⭐️️️" : "☆"}
       </button>
     </div>
   );
